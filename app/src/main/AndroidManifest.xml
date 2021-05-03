@@ -9,13 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BankTransactions">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".screens.SplashActivity"
+            android:theme="@style/Theme.BankTransactions.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".screens.home.HomeActivity"
+            android:label="@string/title_activity_home" />
     </application>
 
 </manifest>
