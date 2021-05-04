@@ -25,4 +25,7 @@ open class Transaction : RealmObject() {
 
     val isCredit: Boolean
         get() = creditAmount != 0.0
+
+    // assuming 15% gst, inclusive price * 3 / 23 is the equation commonly used
+    fun calculateGst(): Double = debitAmount * 3 / 23
 }
