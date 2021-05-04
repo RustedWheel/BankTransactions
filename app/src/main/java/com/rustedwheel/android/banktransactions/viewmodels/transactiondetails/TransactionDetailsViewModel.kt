@@ -12,7 +12,7 @@ class TransactionDetailsViewModel(
 
     val transaction = MutableLiveData<Transaction>()
 
-    init {
+    fun fetchTransactionDetails() {
         transaction.value = transactionsDAO.getTransaction(transactionId)
     }
 

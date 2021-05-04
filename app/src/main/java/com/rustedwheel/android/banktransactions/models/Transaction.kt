@@ -9,19 +9,19 @@ open class Transaction : RealmObject() {
 
     @PrimaryKey
     @SerializedName("id")
-    var id: Int = 0; private set
+    var id: Int = 0
 
     @SerializedName("transactionDate")
-    var transactionDate: Date = Date(); private set
+    var transactionDate: Date = Date()
 
     @SerializedName("summary")
-    var summaryDescription: String = ""; private set
+    var summaryDescription: String = ""
 
     @SerializedName("debit")
-    var debitAmount: Double = 0.0; private set
+    var debitAmount: Double = 0.0
 
     @SerializedName("credit")
-    var creditAmount: Double = 0.0; private set
+    var creditAmount: Double = 0.0
 
     val isCredit: Boolean
         get() = creditAmount != 0.0

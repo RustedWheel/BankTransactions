@@ -10,6 +10,7 @@ interface TransactionDAO {
     fun getTransactions(): List<Transaction>
     fun createFromId(id: Int): Transaction
     fun createFromUntracked(untrackedTransaction: Transaction): Transaction
+    fun edit(block: (TransactionDAO) -> Unit)
 }
 
 class RealmTransactionDAO(private val realm: Realm = Realm.getDefaultInstance()) : TransactionDAO {
@@ -25,4 +26,10 @@ class RealmTransactionDAO(private val realm: Realm = Realm.getDefaultInstance())
 
     override fun createFromUntracked(untrackedTransaction: Transaction): Transaction =
         realm.copyToRealmOrUpdate(untrackedTransaction)
+
+    override fun edit(block: (TransactionDAO) -> Unit) {
+        realm.executeTransaction {
+            block(this)
+        }
+    }
 }

@@ -1,7 +1,6 @@
 package com.rustedwheel.android.banktransactions.servcies
 
 import com.rustedwheel.android.banktransactions.models.dao.TransactionDAO
-import io.realm.Realm
 
 interface TransactionsService {
     suspend fun fetchTransactions()
@@ -17,9 +16,9 @@ class TransactionsServiceImpl(
             it.getTransactions()
         }
 
-        response.body()?.forEach {
-            Realm.getDefaultInstance().executeTransaction { realm ->
-                transactionDAO.createFromUntracked(it)
+        transactionDAO.edit { dao ->
+            response.body()?.forEach { untrackedTransaction ->
+                dao.createFromUntracked(untrackedTransaction)
             }
         }
     }

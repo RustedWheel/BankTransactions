@@ -29,6 +29,7 @@ class TransactionDetailsActivity : BTActivity() {
         viewModel.transaction.observe(this, Observer {
             syncTransaction(it)
         })
+        viewModel.fetchTransactionDetails()
     }
 
     private fun syncTransaction(transaction: Transaction) {
