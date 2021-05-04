@@ -20,4 +20,6 @@ class Transaction {
     @SerializedName("credit")
     var creditAmount: Double = 0.0; private set
 
+    val isCredit: Boolean
+        get() = creditAmount != 0.0
 }

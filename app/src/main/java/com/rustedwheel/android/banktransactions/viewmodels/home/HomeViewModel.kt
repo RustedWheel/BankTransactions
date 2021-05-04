@@ -36,4 +36,8 @@ class HomeViewModel(private val transactionsService: TransactionsService) : View
         }
     }
 
+    fun onTransactionSelected(transaction: Transaction) {
+
+    }
+
 }
