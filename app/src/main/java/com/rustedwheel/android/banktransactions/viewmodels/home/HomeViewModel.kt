@@ -18,6 +18,7 @@ class HomeViewModel(
 
     val transactions = MutableLiveData<List<Transaction>>()
     val isLoading = MutableLiveData<Boolean>()
+    val selectedTransaction = MutableLiveData<Event<Transaction>>()
     val errorMessage = MutableLiveData<Event<String>>()
 
     fun fetchTransactions() {
@@ -32,7 +33,7 @@ class HomeViewModel(
                         errorMessage.value = Event(error.message)
                     }
                     else -> {
-                        errorMessage.value = Event("Something went wrong")
+                        errorMessage.value = Event(error.message ?: "Something went wrong")
                     }
                 }
             } finally {
@@ -42,7 +43,6 @@ class HomeViewModel(
     }
 
     fun onTransactionSelected(transaction: Transaction) {
-
+        selectedTransaction.value = Event(transaction)
     }
-
 }

@@ -25,6 +25,9 @@
         <activity
             android:name=".screens.home.HomeActivity"
             android:label="@string/title_activity_home" />
+        <activity
+            android:name=".screens.transactiondetails.TransactionDetailsActivity"
+            android:label="@string/title_activity_transaction_details" />
     </application>
 
 </manifest>

@@ -1,12 +1,24 @@
 <resources>
     <string name="app_name">BankTransactions</string>
     <string name="title_activity_home">Bank Transactions</string>
+    <string name="title_activity_transaction_details">Transaction details</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
 
+    <string name="transaction_amount">$%s</string>
     <string name="transaction_amount_debit">-$%s</string>
     <string name="transaction_amount_credit">+$%s</string>
+
+    <string name="label_id">Id</string>
+    <string name="label_summary">Summary</string>
+    <string name="label_date">Date</string>
+    <string name="label_type">type</string>
+    <string name="label_amount">Amount</string>
+    <string name="label_gst">Gst Paid</string>
+
+    <string name="label_credit">Credit</string>
+    <string name="label_debit">Debit</string>
 </resources>

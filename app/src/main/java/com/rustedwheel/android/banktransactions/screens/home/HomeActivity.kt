@@ -7,6 +7,7 @@ import com.rustedwheel.android.banktransactions.BTService
 import com.rustedwheel.android.banktransactions.R
 import com.rustedwheel.android.banktransactions.models.Transaction
 import com.rustedwheel.android.banktransactions.screens.core.BTActivity
+import com.rustedwheel.android.banktransactions.screens.transactiondetails.TransactionDetailsActivity
 import com.rustedwheel.android.banktransactions.viewmodels.home.HomeViewModel
 import com.rustedwheel.android.banktransactions.viewmodels.home.HomeViewModelFactory
 import kotlinx.android.synthetic.main.activity_home.*
@@ -32,6 +33,11 @@ class HomeActivity : BTActivity() {
         viewModel.isLoading.observe(this, Observer {
             syncIsLoading(it)
         })
+        viewModel.selectedTransaction.observe(this, Observer { event ->
+            event.handleIfNotHandled {
+                showTransactionDetails(it)
+            }
+        })
         viewModel.errorMessage.observe(this, Observer { event ->
             event.handleIfNotHandled {
                 showErrorMessage(it)
@@ -51,5 +57,9 @@ class HomeActivity : BTActivity() {
 
     private fun syncIsLoading(isLoading: Boolean) {
         homeRefresh.isRefreshing = isLoading
+    }
+
+    private fun showTransactionDetails(transaction: Transaction) {
+        presentActivity(TransactionDetailsActivity::class, TransactionDetailsActivity.makeArgs(transaction.id))
     }
 }

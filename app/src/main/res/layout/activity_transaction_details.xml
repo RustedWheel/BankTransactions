@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/app_margin_2x">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_margin_4x"
+                android:gravity="center_vertical"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_id"
+                    android:textColor="@color/bt_dark_grey" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transactionDetailsId"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/bt_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_margin_3x"
+                android:gravity="center_vertical"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_summary"
+                    android:textColor="@color/bt_dark_grey" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transactionDetailsSummary"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/bt_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_margin_3x"
+                android:gravity="center_vertical"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_date"
+                    android:textColor="@color/bt_dark_grey" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transactionDetailsDate"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/bt_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_margin_3x"
+                android:gravity="center_vertical"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_type"
+                    android:textColor="@color/bt_dark_grey" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transactionDetailsType"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/bt_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_margin_3x"
+                android:gravity="center_vertical"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_amount"
+                    android:textColor="@color/bt_dark_grey" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transactionDetailsAmount"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/bt_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/transactionDetailsGstContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_margin_3x"
+                android:gravity="center_vertical"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_gst"
+                    android:textColor="@color/bt_dark_grey" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transactionDetailsGst"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/bt_black" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>
