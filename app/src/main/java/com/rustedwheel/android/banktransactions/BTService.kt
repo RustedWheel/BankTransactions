@@ -5,6 +5,8 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.rustedwheel.android.banktransactions.network.BTApi
 import com.rustedwheel.android.banktransactions.servcies.NetworkService
 import com.rustedwheel.android.banktransactions.servcies.NetworkServiceImpl
+import com.rustedwheel.android.banktransactions.servcies.TransactionsService
+import com.rustedwheel.android.banktransactions.servcies.TransactionsServiceImpl
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,5 +26,9 @@ object BTService {
 
     val networkService: NetworkService by lazy {
         NetworkServiceImpl(btApi)
+    }
+
+    val transactionService: TransactionsService by lazy {
+        TransactionsServiceImpl(networkService)
     }
 }
