@@ -2,6 +2,8 @@ package com.rustedwheel.android.banktransactions
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.rustedwheel.android.banktransactions.models.dao.RealmTransactionDAO
+import com.rustedwheel.android.banktransactions.models.dao.TransactionDAO
 import com.rustedwheel.android.banktransactions.network.BTApi
 import com.rustedwheel.android.banktransactions.servcies.NetworkService
 import com.rustedwheel.android.banktransactions.servcies.NetworkServiceImpl
@@ -28,7 +30,11 @@ object BTService {
         NetworkServiceImpl(btApi)
     }
 
+    val transactionDAO: TransactionDAO by lazy {
+        RealmTransactionDAO()
+    }
+
     val transactionService: TransactionsService by lazy {
-        TransactionsServiceImpl(networkService)
+        TransactionsServiceImpl(networkService, transactionDAO)
     }
 }

@@ -13,7 +13,7 @@ class SplashActivity : BTActivity() {
         setContentView(R.layout.splash_main)
         Handler(Looper.getMainLooper()).postDelayed({
             goToHomeScreen()
-        }, 3000)
+        }, 2000)
     }
 
     private fun goToHomeScreen() {

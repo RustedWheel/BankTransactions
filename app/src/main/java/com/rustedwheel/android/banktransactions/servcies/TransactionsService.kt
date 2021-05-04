@@ -1,18 +1,27 @@
 package com.rustedwheel.android.banktransactions.servcies
 
-import com.rustedwheel.android.banktransactions.models.Transaction
+import com.rustedwheel.android.banktransactions.models.dao.TransactionDAO
+import io.realm.Realm
 
 interface TransactionsService {
-    suspend fun fetchTransactions(): List<Transaction>
+    suspend fun fetchTransactions()
 }
 
-class TransactionsServiceImpl(private val networkService: NetworkService): TransactionsService {
+class TransactionsServiceImpl(
+    private val networkService: NetworkService,
+    private val transactionDAO: TransactionDAO
+) : TransactionsService {
 
-    override suspend fun fetchTransactions(): List<Transaction> {
+    override suspend fun fetchTransactions() {
         val response = networkService.call {
             it.getTransactions()
         }
-        return response.body() ?: listOf()
+
+        response.body()?.forEach {
+            Realm.getDefaultInstance().executeTransaction { realm ->
+                transactionDAO.createFromUntracked(it)
+            }
+        }
     }
 
 }

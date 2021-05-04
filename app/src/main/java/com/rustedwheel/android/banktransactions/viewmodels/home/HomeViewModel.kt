@@ -4,13 +4,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rustedwheel.android.banktransactions.models.Transaction
+import com.rustedwheel.android.banktransactions.models.dao.TransactionDAO
 import com.rustedwheel.android.banktransactions.network.BTApiError
 import com.rustedwheel.android.banktransactions.servcies.TransactionsService
 import com.rustedwheel.android.banktransactions.utils.Event
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class HomeViewModel(private val transactionsService: TransactionsService) : ViewModel() {
+class HomeViewModel(
+    private val transactionsService: TransactionsService,
+    private val transactionsDAO: TransactionDAO
+) : ViewModel() {
 
     val transactions = MutableLiveData<List<Transaction>>()
     val isLoading = MutableLiveData<Boolean>()
@@ -20,7 +24,8 @@ class HomeViewModel(private val transactionsService: TransactionsService) : View
         viewModelScope.launch {
             isLoading.value = true
             try {
-                transactions.value = transactionsService.fetchTransactions()
+                transactionsService.fetchTransactions()
+                transactions.value = transactionsDAO.getTransactions()
             } catch (error: Exception) {
                 when (error) {
                     is BTApiError -> {

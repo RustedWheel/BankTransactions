@@ -1,10 +1,13 @@
 package com.rustedwheel.android.banktransactions.models
 
 import com.google.gson.annotations.SerializedName
+import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
 import java.util.*
 
-class Transaction {
+open class Transaction : RealmObject() {
 
+    @PrimaryKey
     @SerializedName("id")
     var id: Int = 0; private set
 

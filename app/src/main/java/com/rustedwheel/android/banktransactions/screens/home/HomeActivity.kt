@@ -13,7 +13,9 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BTActivity() {
 
-    private val viewModel: HomeViewModel by viewModels { HomeViewModelFactory(BTService.transactionService) }
+    private val viewModel: HomeViewModel by viewModels {
+        HomeViewModelFactory(BTService.transactionService, BTService.transactionDAO)
+    }
     private val homeTransactionsAdapter by lazy { HomeTransactionsAdapter(viewModel::onTransactionSelected) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
